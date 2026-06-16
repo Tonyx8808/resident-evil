@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================
+   UMBRELLA CORPORATION — DESIGN SYSTEM
+   Chrome · Blood · Biohazard
+   ============================================= */
+
+/* --- GOOGLE FONTS --------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=Share+Tech+Mono&family=Inter:wght@300;400;500&display=swap');
+
+/* --- RESET --------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- TOKENS -------------------------------------- */
+:root {
+  /* Core palette */
+  --color-black:       #080808;
+  --color-surface:     #0c0c0c;
+  --color-chrome-100:  #f0f0f0;
+  --color-chrome-300:  #c0c0c0;
+  --color-chrome-500:  #888;
+  --color-chrome-700:  #555;
+  --color-red-900:     #3d0000;
+  --color-red-700:     #6b0000;
+  --color-red-500:     #8b0000;
+  --color-red-400:     #aa0000;
+  --color-red-300:     #cc0000;
+  --color-red-200:     #e00000;
+  --color-zinc-900:    #111;
+  --color-zinc-700:    #3a3a3a;
+  --color-zinc-500:    #666;
+  --color-zinc-400:    #888;
+  --color-zinc-200:    #d4d4d4;
+  --color-zinc-100:    #f0f0f0;
+
+  /* Typography */
+  --font-display: 'Oswald', sans-serif;
+  --font-mono:    'Share Tech Mono', 'Courier New', monospace;
+  --font-body:    'Inter', system-ui, sans-serif;
+}
+
+/* --- BASE --------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: var(--color-black);
+  color: var(--color-zinc-200);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* --- TAILWIND OVERRIDES --- */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono) !important;
+}
+
+.bg-background {
+  background-color: var(--color-black) !important;
+}
+
+.text-foreground {
+  color: var(--color-zinc-100) !important;
+}
+
+.text-accent {
+  color: var(--color-red-300) !important;
+}
+
+.bg-accent {
+  background-color: var(--color-red-300) !important;
+}
+
+.border-accent {
+  border-color: var(--color-red-500) !important;
+}
+
+/* --- SCROLLBAR -------------------------------------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6b0000, #3d0000);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #aa0000, #6b0000);
+}
+
+/* --- CHROME GRADIENT MIXIN ----------------------- */
+.chrome-surface {
+  background: linear-gradient(
+    180deg,
+    #efefef 0%,
+    #c8c8c8 18%,
+    #888 35%,
+    #b0b0b0 50%,
+    #6e6e6e 65%,
+    #9a9a9a 82%,
+    #555 100%
+  );
+}
+
+/* --- CARD SURFACE -------------------------------- */
+.card-surface {
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 10, 0.97) 0%,
+    rgba(18, 3, 3, 0.94) 100%
+  );
+  border: 1px solid rgba(139, 0, 0, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 40px -10px rgba(180, 0, 0, 0.38),
+    0 12px 48px rgba(0, 0, 0, 0.75);
+}
+
+/* --- BLOOD UTILITY ------------------------------- */
+.blood-glow {
+  box-shadow: 0 0 12px 2px rgba(180, 0, 0, 0.55);
+}
+
+.blood-text-glow {
+  text-shadow: 0 0 16px rgba(200, 0, 0, 0.6);
+}
+
+.blood-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #cc0000;
+  box-shadow: 0 0 8px rgba(200, 0, 0, 0.9);
+}
+
+/* --- SCANLINE OVERLAY ---------------------------- */
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.07) 0px,
+    rgba(0, 0, 0, 0.07) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* --- SCROLL ANIMATION TARGET --------------------- */
+.scroll-animation {
+  height: 600dvh;
+}
+
+/* --- LINKS --------------------------------------- */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+/* --- SELECTION ----------------------------------- */
+::selection {
+  background: rgba(139, 0, 0, 0.5);
+  color: #fff;
+}
+
+/* --- FOCUS --------------------------------------- */
+:focus-visible {
+  outline: 1px solid rgba(139, 0, 0, 0.7);
+  outline-offset: 2px;
+}
+
+/* --- MAIN --------------------------------------- */
+main {
+  min-height: calc(100dvh - 64px);
+}
